@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import './styles.css';
+
+//react v18
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -11,7 +11,52 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+function App() {
+  return (
+    <div className='card'>
+      <Avatar />
+      <div className='data'>
+        <Intro />
+        <SkillList />
+      </div>
+    </div>
+  );
+}
+
+function Avatar({ src, name }) {
+  return <img src='about.jpg' alt='Joary' className='avatar' />;
+}
+
+function Intro() {
+  return (
+    <div>
+      <h1>Joary Raoelison</h1>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit
+        nobis repudiandae corporis aut aliquid, laborum dolore temporibus
+        voluptatem soluta in!
+      </p>
+    </div>
+  );
+}
+
+function SkillList() {
+  return (
+    <ul className='skill-list'>
+      <Skill skillName='HTML+CSS' emoji='⚡' color='blue' />
+      <Skill skillName='Javascript' emoji='😊' color='yellow' />
+      <Skill skillName='Web Design' emoji='⚡' color='green' />
+      <Skill skillName='Git and Github' emoji='⚡' color='red' />
+      <Skill skillName='React' emoji='😊' color='pink' />
+      <Skill skillName='Svelte' emoji='💥' color='purple' />
+    </ul>
+  );
+}
+
+function Skill({ skillName, emoji, color }) {
+  return (
+    <li className='skill' style={{ backgroundColor: color }}>
+      {skillName} {emoji}
+    </li>
+  );
+}
